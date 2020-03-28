@@ -25,3 +25,18 @@ lines=list(filetext.readlines())
 line0=''.join(lines)
 text1.insert(INSERT,line0)
 wenben0=text1.get('1.0',INSERT)
+
+textb=Text(root,width=80,height=2)
+textb.insert(INSERT,"点击打开163邮件服务器首页(不信你试试( iwi ))--------------------")
+textb.tag_add('link','1.2','1.12')
+textb.tag_config('link',foreground='green',underline=True,background='pink')
+def show_hand_cursor(event):
+    textb.config(cursor='arrow')
+def click(event):
+    webbrowser.open('https://mail.163.com/')
+def show_arrow_cursor(event):
+    textb.config(cursor='xterm')
+textb.tag_bind('link','<Enter>',show_hand_cursor)
+textb.tag_bind('link','<Button-1>',click)
+textb.tag_bind('link','<Leave>',show_arrow_cursor)
+textb.place(x=110,y=460)
