@@ -19,3 +19,9 @@ Label(root,text='欢迎使用文本编辑器',fg='blue',font=50).place(x=300,y=3
 Label(root,text='文本输入',fg='green',font=30).place(x=10,y=80)
 text1=Text(root,bd=3,fg='red')
 text1.place(x=110,y=80)
+
+filetext=open('english.txt','r')
+lines=list(filetext.readlines())
+line0=''.join(lines)
+text1.insert(INSERT,line0)
+wenben0=text1.get('1.0',INSERT)
